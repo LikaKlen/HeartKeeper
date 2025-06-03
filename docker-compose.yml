@@ -4,7 +4,7 @@ services:
       context: ./
       dockerfile: Dockerfile
     ports:
-      - "5555:5555"
+      - '5555:5555'
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/heatkeeper
       SPRING_DATASOURCE_USERNAME: postgres
@@ -17,13 +17,20 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - '80:80'
   ai-agent:
     build:
-      context: ./
+      context: ./relationship_ai
       dockerfile: Dockerfile
+
+    environment:
+      OPENAI_API_KEY: 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
+      WEATHER_API_KEY: 311438e22dfd86b464b6d389a96a20a2
+      MAPS_API_KEY: d0af87be-bf06-4701-b857-420c1a5ad347
+      GEO_LOC: d0af87be-bf06-4701-b857-420c1a5ad347
+
     ports:
-      - "5000:5000"
+      - '5000:5000'
     depends_on:
       - db
 
@@ -34,7 +41,6 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 12345678
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-

@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from app.preference_store import load_user_preferences
 
 load_dotenv()
-openai.api_key = os.getenv('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')
+openai.api_key = os.getenv('OPENAI_API_KEY')
 
 SYSTEM_PROMPT = (
     "Ты — виртуальный психолог-консультант по отношениям. Отвечай только на русском языке. "
