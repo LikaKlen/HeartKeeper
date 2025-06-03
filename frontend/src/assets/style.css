@@ -1,0 +1,14 @@
+:root[data-theme="light"] {
+  --background: linear-gradient(#EFD4E1, #99CAF3);
+  --text-color: #000000;
+}
+
+[data-theme='dark'] {
+  --background:linear-gradient(#EF73B1, #183C5A);
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-color);
+}
